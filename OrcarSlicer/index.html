@@ -1,0 +1,3761 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns#" class="no-js" itemtype="https://schema.org/WebPage" itemscope="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <style>
+    img:is([sizes="auto" i], [sizes^="auto," i]) {
+      contain-intrinsic-size: 3000px 1500px
+    }
+  </style>
+  <link rel="alternate" href="https://orcaslicer3d.com/" hreflang="en">
+  <link rel="alternate" href="https://orcaslicer3d.com/de/" hreflang="de">
+  <title>Orca Slicer Getting Started Guide – A Slicer for All of Your 3D Printing</title>
+  <meta name="description"
+    content="Orca Slicer is free, open-source 3D printing software built on PrusaSlicer and Bambu Studio. It delivers fast slicing, smart supports, and precise G-code.">
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+  <link rel="canonical" href="https://orcaslicer3d.com/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Orca Slicer Getting Started Guide – A Slicer for All of Your 3D Printing">
+  <meta property="og:description"
+    content="Orca Slicer is free, open-source 3D printing software built on PrusaSlicer and Bambu Studio. It delivers fast slicing, smart supports, and precise G-code.">
+  <meta property="og:url" content="https://orcaslicer3d.com/">
+  <meta property="og:site_name" content="Orca Slicer">
+  <meta property="og:updated_time" content="2025-09-27T06:29:20+00:00">
+  <meta property="og:image" content="images/t4MorG05Xbo8.webp">
+  <meta property="og:image:secure_url" content="images/t4MorG05Xbo8.webp">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="orca-slicer-logo">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="article:published_time" content="2025-07-16T18:25:32+00:00">
+  <meta property="article:modified_time" content="2025-09-27T06:29:20+00:00">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Orca Slicer Getting Started Guide – A Slicer for All of Your 3D Printing">
+  <meta name="twitter:description"
+    content="Orca Slicer is free, open-source 3D printing software built on PrusaSlicer and Bambu Studio. It delivers fast slicing, smart supports, and precise G-code.">
+  <meta name="twitter:image"
+    content="https://orcaslicer3d.com/wp-content/uploads/2025/07/cropped-cropped-orca-slicer-logo.webp">
+  <meta name="twitter:label1" content="Written by">
+  <meta name="twitter:data1" content="Orca Slicer Team">
+  <meta name="twitter:label2" content="Time to read">
+  <meta name="twitter:data2" content="13 minutes">
+
+
+  <link data-optimized="2" rel="stylesheet" href="css/IhtchIcUKEOd.css">
+  <style id="classic-theme-styles-inline-css">
+    /*! This file is auto-generated */
+    .wp-block-button__link {
+      color: #fff;
+      background-color: #32373c;
+      border-radius: 9999px;
+      box-shadow: none;
+      text-decoration: none;
+      padding: calc(.667em + 2px) calc(1.333em + 2px);
+      font-size: 1.125em
+    }
+
+    .wp-block-file__button {
+      background: #32373c;
+      color: #fff;
+      text-decoration: none
+    }
+  </style>
+  <style id="global-styles-inline-css">
+    :root {
+      --wp--preset--aspect-ratio--square: 1;
+      --wp--preset--aspect-ratio--4-3: 4/3;
+      --wp--preset--aspect-ratio--3-4: 3/4;
+      --wp--preset--aspect-ratio--3-2: 3/2;
+      --wp--preset--aspect-ratio--2-3: 2/3;
+      --wp--preset--aspect-ratio--16-9: 16/9;
+      --wp--preset--aspect-ratio--9-16: 9/16;
+      --wp--preset--color--black: #000000;
+      --wp--preset--color--cyan-bluish-gray: #abb8c3;
+      --wp--preset--color--white: #ffffff;
+      --wp--preset--color--pale-pink: #f78da7;
+      --wp--preset--color--vivid-red: #cf2e2e;
+      --wp--preset--color--luminous-vivid-orange: #ff6900;
+      --wp--preset--color--luminous-vivid-amber: #fcb900;
+      --wp--preset--color--light-green-cyan: #7bdcb5;
+      --wp--preset--color--vivid-green-cyan: #00d084;
+      --wp--preset--color--pale-cyan-blue: #8ed1fc;
+      --wp--preset--color--vivid-cyan-blue: #0693e3;
+      --wp--preset--color--vivid-purple: #9b51e0;
+      --wp--preset--color--theme-palette-1: var(--global-palette1);
+      --wp--preset--color--theme-palette-2: var(--global-palette2);
+      --wp--preset--color--theme-palette-3: var(--global-palette3);
+      --wp--preset--color--theme-palette-4: var(--global-palette4);
+      --wp--preset--color--theme-palette-5: var(--global-palette5);
+      --wp--preset--color--theme-palette-6: var(--global-palette6);
+      --wp--preset--color--theme-palette-7: var(--global-palette7);
+      --wp--preset--color--theme-palette-8: var(--global-palette8);
+      --wp--preset--color--theme-palette-9: var(--global-palette9);
+      --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+      --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+      --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+      --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+      --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+      --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+      --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+      --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+      --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+      --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+      --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+      --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+      --wp--preset--font-size--small: var(--global-font-size-small);
+      --wp--preset--font-size--medium: var(--global-font-size-medium);
+      --wp--preset--font-size--large: var(--global-font-size-large);
+      --wp--preset--font-size--x-large: 42px;
+      --wp--preset--font-size--larger: var(--global-font-size-larger);
+      --wp--preset--font-size--xxlarge: var(--global-font-size-xxlarge);
+      --wp--preset--spacing--20: 0.44rem;
+      --wp--preset--spacing--30: 0.67rem;
+      --wp--preset--spacing--40: 1rem;
+      --wp--preset--spacing--50: 1.5rem;
+      --wp--preset--spacing--60: 2.25rem;
+      --wp--preset--spacing--70: 3.38rem;
+      --wp--preset--spacing--80: 5.06rem;
+      --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+      --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+      --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+      --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+      --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+    }
+
+    :where(.is-layout-flex) {
+      gap: 0.5em;
+    }
+
+    :where(.is-layout-grid) {
+      gap: 0.5em;
+    }
+
+    body .is-layout-flex {
+      display: flex;
+    }
+
+    .is-layout-flex {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .is-layout-flex> :is(*, div) {
+      margin: 0;
+    }
+
+    body .is-layout-grid {
+      display: grid;
+    }
+
+    .is-layout-grid> :is(*, div) {
+      margin: 0;
+    }
+
+    :where(.wp-block-columns.is-layout-flex) {
+      gap: 2em;
+    }
+
+    :where(.wp-block-columns.is-layout-grid) {
+      gap: 2em;
+    }
+
+    :where(.wp-block-post-template.is-layout-flex) {
+      gap: 1.25em;
+    }
+
+    :where(.wp-block-post-template.is-layout-grid) {
+      gap: 1.25em;
+    }
+
+    .has-black-color {
+      color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-color {
+      color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-color {
+      color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-color {
+      color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-color {
+      color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-color {
+      color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-color {
+      color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-color {
+      color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-color {
+      color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-color {
+      color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-color {
+      color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-color {
+      color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-background-color {
+      background-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-background-color {
+      background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-background-color {
+      background-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-background-color {
+      background-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-background-color {
+      background-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-background-color {
+      background-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-background-color {
+      background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-background-color {
+      background-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-border-color {
+      border-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-border-color {
+      border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-border-color {
+      border-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-border-color {
+      border-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-border-color {
+      border-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-border-color {
+      border-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-border-color {
+      border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-border-color {
+      border-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+      background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+    }
+
+    .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+      background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+    }
+
+    .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+    }
+
+    .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+      background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+    }
+
+    .has-cool-to-warm-spectrum-gradient-background {
+      background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+    }
+
+    .has-blush-light-purple-gradient-background {
+      background: var(--wp--preset--gradient--blush-light-purple) !important;
+    }
+
+    .has-blush-bordeaux-gradient-background {
+      background: var(--wp--preset--gradient--blush-bordeaux) !important;
+    }
+
+    .has-luminous-dusk-gradient-background {
+      background: var(--wp--preset--gradient--luminous-dusk) !important;
+    }
+
+    .has-pale-ocean-gradient-background {
+      background: var(--wp--preset--gradient--pale-ocean) !important;
+    }
+
+    .has-electric-grass-gradient-background {
+      background: var(--wp--preset--gradient--electric-grass) !important;
+    }
+
+    .has-midnight-gradient-background {
+      background: var(--wp--preset--gradient--midnight) !important;
+    }
+
+    .has-small-font-size {
+      font-size: var(--wp--preset--font-size--small) !important;
+    }
+
+    .has-medium-font-size {
+      font-size: var(--wp--preset--font-size--medium) !important;
+    }
+
+    .has-large-font-size {
+      font-size: var(--wp--preset--font-size--large) !important;
+    }
+
+    .has-x-large-font-size {
+      font-size: var(--wp--preset--font-size--x-large) !important;
+    }
+
+    :where(.wp-block-post-template.is-layout-flex) {
+      gap: 1.25em;
+    }
+
+    :where(.wp-block-post-template.is-layout-grid) {
+      gap: 1.25em;
+    }
+
+    :where(.wp-block-columns.is-layout-flex) {
+      gap: 2em;
+    }
+
+    :where(.wp-block-columns.is-layout-grid) {
+      gap: 2em;
+    }
+
+    :root :where(.wp-block-pullquote) {
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
+  </style>
+  <style id="kadence-global-inline-css">
+    /* Kadence Base CSS */
+    :root {
+      --global-palette1: #2B6CB0;
+      --global-palette2: #215387;
+      --global-palette3: #1A202C;
+      --global-palette4: #2D3748;
+      --global-palette5: #4A5568;
+      --global-palette6: #718096;
+      --global-palette7: #EDF2F7;
+      --global-palette8: #F7FAFC;
+      --global-palette9: #ffffff;
+      --global-palette9rgb: 255, 255, 255;
+      --global-palette-highlight: var(--global-palette1);
+      --global-palette-highlight-alt: var(--global-palette2);
+      --global-palette-highlight-alt2: var(--global-palette9);
+      --global-palette-btn-bg: var(--global-palette1);
+      --global-palette-btn-bg-hover: var(--global-palette2);
+      --global-palette-btn: var(--global-palette9);
+      --global-palette-btn-hover: var(--global-palette9);
+      --global-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      --global-heading-font-family: inherit;
+      --global-primary-nav-font-family: inherit;
+      --global-fallback-font: sans-serif;
+      --global-display-fallback-font: sans-serif;
+      --global-content-width: 1290px;
+      --global-content-wide-width: calc(1290px + 230px);
+      --global-content-narrow-width: 842px;
+      --global-content-edge-padding: 1.5rem;
+      --global-content-boxed-padding: 2rem;
+      --global-calc-content-width: calc(1290px - var(--global-content-edge-padding) - var(--global-content-edge-padding));
+      --wp--style--global--content-size: var(--global-calc-content-width);
+    }
+
+    .wp-site-blocks {
+      --global-vw: calc(100vw - (0.5 * var(--scrollbar-offset)));
+    }
+
+    body {
+      background: var(--global-palette8);
+    }
+
+    body,
+    input,
+    select,
+    optgroup,
+    textarea {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.6;
+      font-family: var(--global-body-font-family);
+      color: var(--global-palette4);
+    }
+
+    .content-bg,
+    body.content-style-unboxed .site {
+      background: var(--global-palette9);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--global-heading-font-family);
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.5;
+      color: var(--global-palette3);
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.5;
+      color: var(--global-palette3);
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--global-palette3);
+    }
+
+    h4 {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--global-palette4);
+    }
+
+    h5 {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--global-palette4);
+    }
+
+    h6 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--global-palette5);
+    }
+
+    .entry-hero .kadence-breadcrumbs {
+      max-width: 1290px;
+    }
+
+    .site-container,
+    .site-header-row-layout-contained,
+    .site-footer-row-layout-contained,
+    .entry-hero-layout-contained,
+    .comments-area,
+    .alignfull>.wp-block-cover__inner-container,
+    .alignwide>.wp-block-cover__inner-container {
+      max-width: var(--global-content-width);
+    }
+
+    .content-width-narrow .content-container.site-container,
+    .content-width-narrow .hero-container.site-container {
+      max-width: var(--global-content-narrow-width);
+    }
+
+    @media all and (min-width: 1520px) {
+      .wp-site-blocks .content-container .alignwide {
+        margin-left: -115px;
+        margin-right: -115px;
+        width: unset;
+        max-width: unset;
+      }
+    }
+
+    @media all and (min-width: 1102px) {
+      .content-width-narrow .wp-site-blocks .content-container .alignwide {
+        margin-left: -130px;
+        margin-right: -130px;
+        width: unset;
+        max-width: unset;
+      }
+    }
+
+    .content-style-boxed .wp-site-blocks .entry-content .alignwide {
+      margin-left: calc(-1 * var(--global-content-boxed-padding));
+      margin-right: calc(-1 * var(--global-content-boxed-padding));
+    }
+
+    .content-area {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    @media all and (max-width: 1024px) {
+      .content-area {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .content-area {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+      :root {
+        --global-content-boxed-padding: 2rem;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      :root {
+        --global-content-boxed-padding: 1.5rem;
+      }
+    }
+
+    .entry-content-wrap {
+      padding: 2rem;
+    }
+
+    @media all and (max-width: 1024px) {
+      .entry-content-wrap {
+        padding: 2rem;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .entry-content-wrap {
+        padding: 1.5rem;
+      }
+    }
+
+    .entry.single-entry {
+      box-shadow: 0px 15px 15px -10px rgba(0, 0, 0, 0.05);
+    }
+
+    .entry.loop-entry {
+      box-shadow: 0px 15px 15px -10px rgba(0, 0, 0, 0.05);
+    }
+
+    .loop-entry .entry-content-wrap {
+      padding: 2rem;
+    }
+
+    @media all and (max-width: 1024px) {
+      .loop-entry .entry-content-wrap {
+        padding: 2rem;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .loop-entry .entry-content-wrap {
+        padding: 1.5rem;
+      }
+    }
+
+    button,
+    .button,
+    .wp-block-button__link,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"],
+    .fl-button,
+    .elementor-button-wrapper .elementor-button,
+    .wc-block-components-checkout-place-order-button,
+    .wc-block-cart__submit {
+      box-shadow: 0px 0px 0px -7px rgba(0, 0, 0, 0);
+    }
+
+    button:hover,
+    button:focus,
+    button:active,
+    .button:hover,
+    .button:focus,
+    .button:active,
+    .wp-block-button__link:hover,
+    .wp-block-button__link:focus,
+    .wp-block-button__link:active,
+    input[type="button"]:hover,
+    input[type="button"]:focus,
+    input[type="button"]:active,
+    input[type="reset"]:hover,
+    input[type="reset"]:focus,
+    input[type="reset"]:active,
+    input[type="submit"]:hover,
+    input[type="submit"]:focus,
+    input[type="submit"]:active,
+    .elementor-button-wrapper .elementor-button:hover,
+    .elementor-button-wrapper .elementor-button:focus,
+    .elementor-button-wrapper .elementor-button:active,
+    .wc-block-cart__submit:hover {
+      box-shadow: 0px 15px 25px -7px rgba(0, 0, 0, 0.1);
+    }
+
+    .kb-button.kb-btn-global-outline.kb-btn-global-inherit {
+      padding-top: calc(px - 2px);
+      padding-right: calc(px - 2px);
+      padding-bottom: calc(px - 2px);
+      padding-left: calc(px - 2px);
+    }
+
+    @media all and (min-width: 1025px) {
+      .transparent-header .entry-hero .entry-hero-container-inner {
+        padding-top: 80px;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+      .mobile-transparent-header .entry-hero .entry-hero-container-inner {
+        padding-top: 80px;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .mobile-transparent-header .entry-hero .entry-hero-container-inner {
+        padding-top: 80px;
+      }
+    }
+
+    .entry-hero.page-hero-section .entry-header {
+      min-height: 200px;
+    }
+
+    /* Kadence Header CSS */
+    @media all and (max-width: 1024px) {
+      .mobile-transparent-header #masthead {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        z-index: 100;
+      }
+
+      .kadence-scrollbar-fixer.mobile-transparent-header #masthead {
+        right: var(--scrollbar-offset, 0);
+      }
+
+      .mobile-transparent-header #masthead,
+      .mobile-transparent-header .site-top-header-wrap .site-header-row-container-inner,
+      .mobile-transparent-header .site-main-header-wrap .site-header-row-container-inner,
+      .mobile-transparent-header .site-bottom-header-wrap .site-header-row-container-inner {
+        background: transparent;
+      }
+
+      .site-header-row-tablet-layout-fullwidth,
+      .site-header-row-tablet-layout-standard {
+        padding: 0px;
+      }
+    }
+
+    @media all and (min-width: 1025px) {
+      .transparent-header #masthead {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        z-index: 100;
+      }
+
+      .transparent-header.kadence-scrollbar-fixer #masthead {
+        right: var(--scrollbar-offset, 0);
+      }
+
+      .transparent-header #masthead,
+      .transparent-header .site-top-header-wrap .site-header-row-container-inner,
+      .transparent-header .site-main-header-wrap .site-header-row-container-inner,
+      .transparent-header .site-bottom-header-wrap .site-header-row-container-inner {
+        background: transparent;
+      }
+    }
+
+    .site-branding a.brand img {
+      max-width: 78px;
+    }
+
+    .site-branding a.brand img.svg-logo-image {
+      width: 78px;
+    }
+
+    .site-branding {
+      padding: 0px 0px 0px 0px;
+    }
+
+    .site-branding .site-title {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.2;
+      color: var(--global-palette9);
+    }
+
+    #masthead,
+    #masthead .kadence-sticky-header.item-is-fixed:not(.item-at-start):not(.site-header-row-container):not(.site-main-header-wrap),
+    #masthead .kadence-sticky-header.item-is-fixed:not(.item-at-start)>.site-header-row-container-inner {
+      background: #ffffff;
+    }
+
+    .site-main-header-wrap .site-header-row-container-inner {
+      background: #009b9b;
+    }
+
+    .site-main-header-inner-wrap {
+      min-height: 80px;
+    }
+
+    .header-navigation[class*="header-navigation-style-underline"] .header-menu-container.primary-menu-container>ul>li>a:after {
+      width: calc(100% - 1.2em);
+    }
+
+    .main-navigation .primary-menu-container>ul>li.menu-item>a {
+      padding-left: calc(1.2em / 2);
+      padding-right: calc(1.2em / 2);
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+      color: var(--global-palette9);
+    }
+
+    .main-navigation .primary-menu-container>ul>li.menu-item .dropdown-nav-special-toggle {
+      right: calc(1.2em / 2);
+    }
+
+    .main-navigation .primary-menu-container>ul>li.menu-item>a:hover {
+      color: var(--global-palette-highlight);
+    }
+
+    .main-navigation .primary-menu-container>ul>li.menu-item.current-menu-item>a {
+      color: var(--global-palette3);
+    }
+
+    .header-navigation .header-menu-container ul ul.sub-menu,
+    .header-navigation .header-menu-container ul ul.submenu {
+      background: var(--global-palette3);
+      box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-navigation .header-menu-container ul ul li.menu-item,
+    .header-menu-container ul.menu>li.kadence-menu-mega-enabled>ul>li.menu-item>a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-navigation .header-menu-container ul ul li.menu-item>a {
+      width: 200px;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      color: var(--global-palette8);
+      font-size: 12px;
+    }
+
+    .header-navigation .header-menu-container ul ul li.menu-item>a:hover {
+      color: var(--global-palette9);
+      background: var(--global-palette4);
+    }
+
+    .header-navigation .header-menu-container ul ul li.menu-item.current-menu-item>a {
+      color: var(--global-palette9);
+      background: var(--global-palette4);
+    }
+
+    .mobile-toggle-open-container .menu-toggle-open,
+    .mobile-toggle-open-container .menu-toggle-open:focus {
+      color: var(--global-palette5);
+      padding: 0.4em 0.6em 0.4em 0.6em;
+      font-size: 14px;
+    }
+
+    .mobile-toggle-open-container .menu-toggle-open.menu-toggle-style-bordered {
+      border: 1px solid currentColor;
+    }
+
+    .mobile-toggle-open-container .menu-toggle-open .menu-toggle-icon {
+      font-size: 20px;
+    }
+
+    .mobile-toggle-open-container .menu-toggle-open:hover,
+    .mobile-toggle-open-container .menu-toggle-open:focus-visible {
+      color: var(--global-palette-highlight);
+    }
+
+    .mobile-navigation ul li {
+      font-size: 14px;
+    }
+
+    .mobile-navigation ul li a {
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+
+    .mobile-navigation ul li>a,
+    .mobile-navigation ul li.menu-item-has-children>.drawer-nav-drop-wrap {
+      color: var(--global-palette8);
+    }
+
+    .mobile-navigation ul li.current-menu-item>a,
+    .mobile-navigation ul li.current-menu-item.menu-item-has-children>.drawer-nav-drop-wrap {
+      color: var(--global-palette-highlight);
+    }
+
+    .mobile-navigation ul li.menu-item-has-children .drawer-nav-drop-wrap,
+    .mobile-navigation ul li:not(.menu-item-has-children) a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-navigation:not(.drawer-navigation-parent-toggle-true) ul li.menu-item-has-children .drawer-nav-drop-wrap button {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #mobile-drawer .drawer-header .drawer-toggle {
+      padding: 0.6em 0.15em 0.6em 0.15em;
+      font-size: 24px;
+    }
+
+    /* Kadence Footer CSS */
+    .site-middle-footer-inner-wrap {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+    }
+
+    .site-middle-footer-inner-wrap .widget {
+      margin-bottom: 30px;
+    }
+
+    .site-middle-footer-inner-wrap .site-footer-section:not(:last-child):after {
+      right: calc(-30px / 2);
+    }
+
+    .site-top-footer-inner-wrap {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+    }
+
+    .site-top-footer-inner-wrap .widget {
+      margin-bottom: 30px;
+    }
+
+    .site-top-footer-inner-wrap .site-footer-section:not(:last-child):after {
+      right: calc(-30px / 2);
+    }
+
+    #colophon .footer-navigation .footer-menu-container>ul>li>a {
+      padding-left: calc(1.2em / 2);
+      padding-right: calc(1.2em / 2);
+      padding-top: calc(0.6em / 2);
+      padding-bottom: calc(0.6em / 2);
+      color: var(--global-palette5);
+    }
+
+    #colophon .footer-navigation .footer-menu-container>ul li a:hover {
+      color: var(--global-palette-highlight);
+    }
+
+    #colophon .footer-navigation .footer-menu-container>ul li.current-menu-item>a {
+      color: var(--global-palette3);
+    }
+
+    /* Kadence Pro Header CSS */
+    .header-navigation-dropdown-direction-left ul ul.submenu,
+    .header-navigation-dropdown-direction-left ul ul.sub-menu {
+      right: 0px;
+      left: auto;
+    }
+
+    .rtl .header-navigation-dropdown-direction-right ul ul.submenu,
+    .rtl .header-navigation-dropdown-direction-right ul ul.sub-menu {
+      left: 0px;
+      right: auto;
+    }
+
+    .header-account-button .nav-drop-title-wrap>.kadence-svg-iconset,
+    .header-account-button>.kadence-svg-iconset {
+      font-size: 1.2em;
+    }
+
+    .site-header-item .header-account-button .nav-drop-title-wrap,
+    .site-header-item .header-account-wrap>.header-account-button {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-account-style-icon_label .header-account-label {
+      padding-left: 5px;
+    }
+
+    .header-account-style-label_icon .header-account-label {
+      padding-right: 5px;
+    }
+
+    .site-header-item .header-account-wrap .header-account-button {
+      text-decoration: none;
+      box-shadow: none;
+      color: inherit;
+      background: transparent;
+      padding: 0.6em 0em 0.6em 0em;
+    }
+
+    .header-mobile-account-wrap .header-account-button .nav-drop-title-wrap>.kadence-svg-iconset,
+    .header-mobile-account-wrap .header-account-button>.kadence-svg-iconset {
+      font-size: 1.2em;
+    }
+
+    .header-mobile-account-wrap .header-account-button .nav-drop-title-wrap,
+    .header-mobile-account-wrap>.header-account-button {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-mobile-account-wrap.header-account-style-icon_label .header-account-label {
+      padding-left: 5px;
+    }
+
+    .header-mobile-account-wrap.header-account-style-label_icon .header-account-label {
+      padding-right: 5px;
+    }
+
+    .header-mobile-account-wrap .header-account-button {
+      text-decoration: none;
+      box-shadow: none;
+      color: inherit;
+      background: transparent;
+      padding: 0.6em 0em 0.6em 0em;
+    }
+
+    #login-drawer .drawer-inner .drawer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      padding: 0px;
+    }
+
+    #loginform p label {
+      display: block;
+    }
+
+    #login-drawer #loginform {
+      width: 100%;
+    }
+
+    #login-drawer #loginform input {
+      width: 100%;
+    }
+
+    #login-drawer #loginform input[type="checkbox"] {
+      width: auto;
+    }
+
+    #login-drawer .drawer-inner .drawer-header {
+      position: relative;
+      z-index: 100;
+    }
+
+    #login-drawer .drawer-content_inner.widget_login_form_inner {
+      padding: 2em;
+      width: 100%;
+      max-width: 350px;
+      border-radius: .25rem;
+      background: var(--global-palette9);
+      color: var(--global-palette4);
+    }
+
+    #login-drawer .lost_password a {
+      color: var(--global-palette6);
+    }
+
+    #login-drawer .lost_password,
+    #login-drawer .register-field {
+      text-align: center;
+    }
+
+    #login-drawer .widget_login_form_inner p {
+      margin-top: 1.2em;
+      margin-bottom: 0em;
+    }
+
+    #login-drawer .widget_login_form_inner p:first-child {
+      margin-top: 0em;
+    }
+
+    #login-drawer .widget_login_form_inner label {
+      margin-bottom: 0.5em;
+    }
+
+    #login-drawer hr.register-divider {
+      margin: 1.2em 0;
+      border-width: 1px;
+    }
+
+    #login-drawer .register-field {
+      font-size: 90%;
+    }
+
+    @media all and (min-width: 1025px) {
+      #login-drawer hr.register-divider.hide-desktop {
+        display: none;
+      }
+
+      #login-drawer p.register-field.hide-desktop {
+        display: none;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+      #login-drawer hr.register-divider.hide-mobile {
+        display: none;
+      }
+
+      #login-drawer p.register-field.hide-mobile {
+        display: none;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      #login-drawer hr.register-divider.hide-mobile {
+        display: none;
+      }
+
+      #login-drawer p.register-field.hide-mobile {
+        display: none;
+      }
+    }
+
+    .tertiary-navigation .tertiary-menu-container>ul>li.menu-item>a {
+      padding-left: calc(1.2em / 2);
+      padding-right: calc(1.2em / 2);
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+      color: var(--global-palette5);
+    }
+
+    .tertiary-navigation .tertiary-menu-container>ul>li.menu-item>a:hover {
+      color: var(--global-palette-highlight);
+    }
+
+    .tertiary-navigation .tertiary-menu-container>ul>li.menu-item.current-menu-item>a {
+      color: var(--global-palette3);
+    }
+
+    .header-navigation[class*="header-navigation-style-underline"] .header-menu-container.tertiary-menu-container>ul>li>a:after {
+      width: calc(100% - 1.2em);
+    }
+
+    .quaternary-navigation .quaternary-menu-container>ul>li.menu-item>a {
+      padding-left: calc(1.2em / 2);
+      padding-right: calc(1.2em / 2);
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+      color: var(--global-palette5);
+    }
+
+    .quaternary-navigation .quaternary-menu-container>ul>li.menu-item>a:hover {
+      color: var(--global-palette-highlight);
+    }
+
+    .quaternary-navigation .quaternary-menu-container>ul>li.menu-item.current-menu-item>a {
+      color: var(--global-palette3);
+    }
+
+    .header-navigation[class*="header-navigation-style-underline"] .header-menu-container.quaternary-menu-container>ul>li>a:after {
+      width: calc(100% - 1.2em);
+    }
+
+    #main-header .header-divider {
+      border-right: 1px solid var(--global-palette6);
+      height: 50%;
+    }
+
+    #main-header .header-divider2 {
+      border-right: 1px solid var(--global-palette6);
+      height: 50%;
+    }
+
+    #main-header .header-divider3 {
+      border-right: 1px solid var(--global-palette6);
+      height: 50%;
+    }
+
+    #mobile-header .header-mobile-divider,
+    #mobile-drawer .header-mobile-divider {
+      border-right: 1px solid var(--global-palette6);
+      height: 50%;
+    }
+
+    #mobile-drawer .header-mobile-divider {
+      border-top: 1px solid var(--global-palette6);
+      width: 50%;
+    }
+
+    #mobile-header .header-mobile-divider2 {
+      border-right: 1px solid var(--global-palette6);
+      height: 50%;
+    }
+
+    #mobile-drawer .header-mobile-divider2 {
+      border-top: 1px solid var(--global-palette6);
+      width: 50%;
+    }
+
+    .header-item-search-bar form ::-webkit-input-placeholder {
+      color: currentColor;
+      opacity: 0.5;
+    }
+
+    .header-item-search-bar form ::placeholder {
+      color: currentColor;
+      opacity: 0.5;
+    }
+
+    .header-search-bar form {
+      max-width: 100%;
+      width: 240px;
+    }
+
+    .header-mobile-search-bar form {
+      max-width: calc(100vw - var(--global-sm-spacing) - var(--global-sm-spacing));
+      width: 240px;
+    }
+
+    .header-widget-lstyle-normal .header-widget-area-inner a:not(.button) {
+      text-decoration: underline;
+    }
+
+    .element-contact-inner-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: -0.6em;
+      margin-left: calc(-0.6em / 2);
+      margin-right: calc(-0.6em / 2);
+    }
+
+    .element-contact-inner-wrap .header-contact-item {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 0.6em;
+      margin-left: calc(0.6em / 2);
+      margin-right: calc(0.6em / 2);
+    }
+
+    .element-contact-inner-wrap .header-contact-item .kadence-svg-iconset {
+      font-size: 1em;
+    }
+
+    .header-contact-item img {
+      display: inline-block;
+    }
+
+    .header-contact-item .contact-label {
+      margin-left: 0.3em;
+    }
+
+    .rtl .header-contact-item .contact-label {
+      margin-right: 0.3em;
+      margin-left: 0px;
+    }
+
+    .header-mobile-contact-wrap .element-contact-inner-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: -0.6em;
+      margin-left: calc(-0.6em / 2);
+      margin-right: calc(-0.6em / 2);
+    }
+
+    .header-mobile-contact-wrap .element-contact-inner-wrap .header-contact-item {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 0.6em;
+      margin-left: calc(0.6em / 2);
+      margin-right: calc(0.6em / 2);
+    }
+
+    .header-mobile-contact-wrap .element-contact-inner-wrap .header-contact-item .kadence-svg-iconset {
+      font-size: 1em;
+    }
+
+    #main-header .header-button2 {
+      border: 2px none transparent;
+      box-shadow: 0px 0px 0px -7px rgba(0, 0, 0, 0);
+    }
+
+    #main-header .header-button2:hover {
+      box-shadow: 0px 15px 25px -7px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-header-button2-wrap .mobile-header-button-inner-wrap .mobile-header-button2 {
+      border: 2px none transparent;
+      box-shadow: 0px 0px 0px -7px rgba(0, 0, 0, 0);
+    }
+
+    .mobile-header-button2-wrap .mobile-header-button-inner-wrap .mobile-header-button2:hover {
+      box-shadow: 0px 15px 25px -7px rgba(0, 0, 0, 0.1);
+    }
+
+    #widget-drawer.popup-drawer-layout-fullwidth .drawer-content .header-widget2,
+    #widget-drawer.popup-drawer-layout-sidepanel .drawer-inner {
+      max-width: 400px;
+    }
+
+    #widget-drawer.popup-drawer-layout-fullwidth .drawer-content .header-widget2 {
+      margin: 0 auto;
+    }
+
+    .widget-toggle-open {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .widget-toggle-open:hover,
+    .widget-toggle-open:focus {
+      border-color: currentColor;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .widget-toggle-open .widget-toggle-icon {
+      display: flex;
+    }
+
+    .widget-toggle-open .widget-toggle-label {
+      padding-right: 5px;
+    }
+
+    .rtl .widget-toggle-open .widget-toggle-label {
+      padding-left: 5px;
+      padding-right: 0px;
+    }
+
+    .widget-toggle-open .widget-toggle-label:empty,
+    .rtl .widget-toggle-open .widget-toggle-label:empty {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .widget-toggle-open-container .widget-toggle-open {
+      color: var(--global-palette5);
+      padding: 0.4em 0.6em 0.4em 0.6em;
+      font-size: 14px;
+    }
+
+    .widget-toggle-open-container .widget-toggle-open.widget-toggle-style-bordered {
+      border: 1px solid currentColor;
+    }
+
+    .widget-toggle-open-container .widget-toggle-open .widget-toggle-icon {
+      font-size: 20px;
+    }
+
+    .widget-toggle-open-container .widget-toggle-open:hover,
+    .widget-toggle-open-container .widget-toggle-open:focus {
+      color: var(--global-palette-highlight);
+    }
+
+    #widget-drawer .header-widget-2style-normal a:not(.button) {
+      text-decoration: underline;
+    }
+
+    #widget-drawer .header-widget-2style-plain a:not(.button) {
+      text-decoration: none;
+    }
+
+    #widget-drawer .header-widget2 .widget-title {
+      color: var(--global-palette9);
+    }
+
+    #widget-drawer .header-widget2 {
+      color: var(--global-palette8);
+    }
+
+    #widget-drawer .header-widget2 a:not(.button),
+    #widget-drawer .header-widget2 .drawer-sub-toggle {
+      color: var(--global-palette8);
+    }
+
+    #widget-drawer .header-widget2 a:not(.button):hover,
+    #widget-drawer .header-widget2 .drawer-sub-toggle:hover {
+      color: var(--global-palette9);
+    }
+
+    #mobile-secondary-site-navigation ul li {
+      font-size: 14px;
+    }
+
+    #mobile-secondary-site-navigation ul li a {
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+
+    #mobile-secondary-site-navigation ul li>a,
+    #mobile-secondary-site-navigation ul li.menu-item-has-children>.drawer-nav-drop-wrap {
+      color: var(--global-palette8);
+    }
+
+    #mobile-secondary-site-navigation ul li.current-menu-item>a,
+    #mobile-secondary-site-navigation ul li.current-menu-item.menu-item-has-children>.drawer-nav-drop-wrap {
+      color: var(--global-palette-highlight);
+    }
+
+    #mobile-secondary-site-navigation ul li.menu-item-has-children .drawer-nav-drop-wrap,
+    #mobile-secondary-site-navigation ul li:not(.menu-item-has-children) a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #mobile-secondary-site-navigation:not(.drawer-navigation-parent-toggle-true) ul li.menu-item-has-children .drawer-nav-drop-wrap button {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+  <style id="kadence-blocks-advancedheading-inline-css">
+    .wp-block-kadence-advancedheading mark {
+      background: transparent;
+      border-style: solid;
+      border-width: 0
+    }
+
+    .wp-block-kadence-advancedheading mark.kt-highlight {
+      color: #f76a0c;
+    }
+
+    .kb-adv-heading-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .is-layout-constrained>.kb-advanced-heading-link {
+      display: block;
+    }
+
+    .single-content .kadence-advanced-heading-wrapper h1,
+    .single-content .kadence-advanced-heading-wrapper h2,
+    .single-content .kadence-advanced-heading-wrapper h3,
+    .single-content .kadence-advanced-heading-wrapper h4,
+    .single-content .kadence-advanced-heading-wrapper h5,
+    .single-content .kadence-advanced-heading-wrapper h6 {
+      margin: 1.5em 0 .5em;
+    }
+
+    .single-content .kadence-advanced-heading-wrapper+* {
+      margin-top: 0;
+    }
+
+    .kb-screen-reader-text {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+    }
+  </style>
+  <style id="kadence-blocks-global-variables-inline-css">
+    :root {
+      --global-kb-font-size-sm: clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);
+      --global-kb-font-size-md: clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);
+      --global-kb-font-size-lg: clamp(1.75rem, 1.576rem + 0.543vw, 2rem);
+      --global-kb-font-size-xl: clamp(2.25rem, 1.728rem + 1.63vw, 3rem);
+      --global-kb-font-size-xxl: clamp(2.5rem, 1.456rem + 3.26vw, 4rem);
+      --global-kb-font-size-xxxl: clamp(2.75rem, 0.489rem + 7.065vw, 6rem);
+    }
+  </style>
+  <style id="kadence_blocks_css-inline-css">
+    .kb-row-layout-id26_de6314-f0>.kt-row-column-wrap {
+      padding-top: var(--global-kb-row-default-top, var(--global-kb-spacing-sm, 1.5rem));
+      padding-bottom: var(--global-kb-row-default-bottom, var(--global-kb-spacing-sm, 1.5rem));
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    @media all and (max-width: 767px) {
+      .kb-row-layout-id26_de6314-f0>.kt-row-column-wrap {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .kadence-column26_472282-e4>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_472282-e4>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_472282-e4>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_472282-e4>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_472282-e4,
+    .kadence-column26_472282-e4 h1,
+    .kadence-column26_472282-e4 h2,
+    .kadence-column26_472282-e4 h3,
+    .kadence-column26_472282-e4 h4,
+    .kadence-column26_472282-e4 h5,
+    .kadence-column26_472282-e4 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_472282-e4>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_472282-e4>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_58da81-55,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_58da81-55[data-kb-block="kb-adv-heading26_58da81-55"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_58da81-55 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_58da81-55[data-kb-block="kb-adv-heading26_58da81-55"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_58da81-55,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_58da81-55[data-kb-block="kb-adv-heading26_58da81-55"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .wp-block-kadence-advancedbtn.kt-btns26_2a480d-3d,
+    .site .entry-content .wp-block-kadence-advancedbtn.kt-btns26_2a480d-3d,
+    .wp-block-kadence-advancedbtn.kb-btns26_2a480d-3d,
+    .site .entry-content .wp-block-kadence-advancedbtn.kb-btns26_2a480d-3d {
+      margin-top: var(--global-kb-spacing-xs, 1rem);
+      margin-right: var(--global-kb-spacing-xs, 1rem);
+      margin-bottom: var(--global-kb-spacing-xs, 1rem);
+      margin-left: var(--global-kb-spacing-xs, 1rem);
+    }
+
+    .wp-block-kadence-advancedbtn.kb-btns26_2a480d-3d {
+      padding-top: var(--global-kb-spacing-xxs, 0.5rem);
+      padding-right: var(--global-kb-spacing-xxs, 0.5rem);
+      padding-bottom: var(--global-kb-spacing-xxs, 0.5rem);
+      padding-left: var(--global-kb-spacing-xxs, 0.5rem);
+      flex-direction: column;
+    }
+
+    ul.menu .wp-block-kadence-advancedbtn .kb-btn26_447e82-f5.kb-button {
+      width: initial;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_447e82-f5.kb-button {
+      background: #009b9b;
+      font-size: var(--global-kb-font-size-md, 1.25rem);
+      font-weight: 400;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      border-bottom-right-radius: 14px;
+      border-bottom-left-radius: 14px;
+    }
+
+    .kb-btn26_447e82-f5.kb-button .kb-svg-icon-wrap {
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      font-size: 34px;
+      --kb-button-icon-size: 34px;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_447e82-f5.kb-button:hover,
+    .wp-block-kadence-advancedbtn .kb-btn26_447e82-f5.kb-button:focus {
+      color: var(--global-palette3, #1A202C);
+      background: #009b9b;
+    }
+
+    @media all and (max-width: 767px) {
+      .wp-block-kadence-advancedbtn .kb-btn26_447e82-f5.kb-button {
+        font-size: 16px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        border-bottom-right-radius: 32px;
+        border-bottom-left-radius: 32px;
+        padding-top: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-right: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-bottom: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-left: var(--global-kb-spacing-xxs, 0.5rem);
+        margin-top: var(--global-kb-spacing-xs, 1rem);
+        margin-right: var(--global-kb-spacing-xs, 1rem);
+        margin-bottom: var(--global-kb-spacing-xs, 1rem);
+        margin-left: var(--global-kb-spacing-xs, 1rem);
+      }
+
+      .kb-btn26_447e82-f5.kb-button .kb-svg-icon-wrap {
+        font-size: 19px;
+        --kb-button-icon-size: 19px;
+      }
+    }
+
+    ul.menu .wp-block-kadence-advancedbtn .kb-btn26_7fc6d9-f7.kb-button {
+      width: initial;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_7fc6d9-f7.kb-button {
+      color: var(--global-palette9, #ffffff);
+      background: #009b9b;
+      font-size: var(--global-kb-font-size-md, 1.25rem);
+      font-family: var(--global-body-font-family, inherit);
+      font-weight: 700;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      border-bottom-right-radius: 14px;
+      border-bottom-left-radius: 14px;
+    }
+
+    .kb-btn26_7fc6d9-f7.kb-button .kb-svg-icon-wrap {
+      font-size: 34px;
+      --kb-button-icon-size: 34px;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_7fc6d9-f7.kb-button:hover,
+    .wp-block-kadence-advancedbtn .kb-btn26_7fc6d9-f7.kb-button:focus {
+      color: var(--global-palette3, #1A202C);
+      background: #009b9b;
+    }
+
+    @media all and (max-width: 767px) {
+      .wp-block-kadence-advancedbtn .kb-btn26_7fc6d9-f7.kb-button {
+        font-size: 17px;
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+        border-bottom-right-radius: 28px;
+        border-bottom-left-radius: 28px;
+        padding-top: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-right: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-bottom: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-left: var(--global-kb-spacing-xxs, 0.5rem);
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .kb-btn26_7fc6d9-f7.kb-button .kb-svg-icon-wrap {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        font-size: 18px;
+        --kb-button-icon-size: 18px;
+      }
+    }
+
+    ul.menu .wp-block-kadence-advancedbtn .kb-btn26_4ee611-b0.kb-button {
+      width: initial;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_4ee611-b0.kb-button {
+      color: var(--global-palette9, #ffffff);
+      background: #009b9b;
+      font-size: var(--global-kb-font-size-md, 1.25rem);
+      font-family: var(--global-body-font-family, inherit);
+      font-weight: 700;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      border-bottom-right-radius: 22px;
+      border-bottom-left-radius: 22px;
+    }
+
+    .kb-btn26_4ee611-b0.kb-button .kb-svg-icon-wrap {
+      font-size: 34px;
+      --kb-button-icon-size: 34px;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_4ee611-b0.kb-button:hover,
+    .wp-block-kadence-advancedbtn .kb-btn26_4ee611-b0.kb-button:focus {
+      color: var(--global-palette3, #1A202C);
+      background: #009b9b;
+    }
+
+    @media all and (max-width: 767px) {
+      .wp-block-kadence-advancedbtn .kb-btn26_4ee611-b0.kb-button {
+        font-size: 17px;
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+        border-bottom-right-radius: 28px;
+        border-bottom-left-radius: 28px;
+        padding-top: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-right: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-bottom: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-left: var(--global-kb-spacing-xxs, 0.5rem);
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .kb-btn26_4ee611-b0.kb-button .kb-svg-icon-wrap {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        font-size: 18px;
+        --kb-button-icon-size: 18px;
+      }
+    }
+
+    ul.menu .wp-block-kadence-advancedbtn .kb-btn26_ec8945-ba.kb-button {
+      width: initial;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_ec8945-ba.kb-button {
+      background: #009b9b;
+      font-size: var(--global-kb-font-size-md, 1.25rem);
+      font-weight: 400;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      border-bottom-right-radius: 22px;
+      border-bottom-left-radius: 22px;
+    }
+
+    .kb-btn26_ec8945-ba.kb-button .kb-svg-icon-wrap {
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      font-size: 34px;
+      --kb-button-icon-size: 34px;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_ec8945-ba.kb-button:hover,
+    .wp-block-kadence-advancedbtn .kb-btn26_ec8945-ba.kb-button:focus {
+      color: var(--global-palette3, #1A202C);
+      background: #009b9b;
+    }
+
+    @media all and (max-width: 767px) {
+      .wp-block-kadence-advancedbtn .kb-btn26_ec8945-ba.kb-button {
+        font-size: 16px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        border-bottom-right-radius: 32px;
+        border-bottom-left-radius: 32px;
+        padding-top: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-right: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-bottom: var(--global-kb-spacing-xxs, 0.5rem);
+        padding-left: var(--global-kb-spacing-xxs, 0.5rem);
+        margin-top: var(--global-kb-spacing-xxs, 0.5rem);
+        margin-right: var(--global-kb-spacing-xxs, 0.5rem);
+        margin-bottom: var(--global-kb-spacing-xxs, 0.5rem);
+        margin-left: var(--global-kb-spacing-xxs, 0.5rem);
+      }
+
+      .kb-btn26_ec8945-ba.kb-button .kb-svg-icon-wrap {
+        font-size: 19px;
+        --kb-button-icon-size: 19px;
+      }
+    }
+
+    .kadence-column26_47151c-53>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_47151c-53>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_47151c-53>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_47151c-53>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_47151c-53,
+    .kadence-column26_47151c-53 h1,
+    .kadence-column26_47151c-53 h2,
+    .kadence-column26_47151c-53 h3,
+    .kadence-column26_47151c-53 h4,
+    .kadence-column26_47151c-53 h5,
+    .kadence-column26_47151c-53 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_47151c-53>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_47151c-53>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_3970d3-1d,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_3970d3-1d[data-kb-block="kb-adv-heading26_3970d3-1d"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_3970d3-1d mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_3970d3-1d[data-kb-block="kb-adv-heading26_3970d3-1d"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_3970d3-1d,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_3970d3-1d[data-kb-block="kb-adv-heading26_3970d3-1d"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kb-image26_c3c9c2-fc .kb-image-has-overlay:after {
+      opacity: 0.3;
+    }
+
+    ul.menu .wp-block-kadence-advancedbtn .kb-btn26_892206-df.kb-button {
+      width: initial;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_892206-df.kb-button {
+      color: var(--global-palette9, #ffffff);
+      background: #009b9b;
+      font-size: var(--global-kb-font-size-md, 1.25rem);
+      font-family: var(--global-body-font-family, inherit);
+      font-weight: 700;
+    }
+
+    .kb-btn26_892206-df.kb-button .kb-svg-icon-wrap {
+      font-size: 34px;
+      --kb-button-icon-size: 34px;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_892206-df.kb-button:hover,
+    .wp-block-kadence-advancedbtn .kb-btn26_892206-df.kb-button:focus {
+      color: var(--global-palette3, #1A202C);
+      background: #009b9b;
+    }
+
+    @media all and (max-width: 767px) {
+      .wp-block-kadence-advancedbtn .kb-btn26_892206-df.kb-button {
+        font-size: 17px;
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+        border-bottom-right-radius: 28px;
+        border-bottom-left-radius: 28px;
+        padding-top: var(--global-kb-spacing-xs, 1rem);
+        padding-right: var(--global-kb-spacing-xs, 1rem);
+        padding-bottom: var(--global-kb-spacing-xs, 1rem);
+        padding-left: var(--global-kb-spacing-xs, 1rem);
+        margin-top: var(--global-kb-spacing-xs, 1rem);
+        margin-right: var(--global-kb-spacing-xs, 1rem);
+        margin-bottom: var(--global-kb-spacing-xs, 1rem);
+        margin-left: var(--global-kb-spacing-xs, 1rem);
+      }
+
+      .kb-btn26_892206-df.kb-button .kb-svg-icon-wrap {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        font-size: 18px;
+        --kb-button-icon-size: 18px;
+      }
+    }
+
+    .kadence-column26_eec029-6e>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_eec029-6e>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_eec029-6e>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_eec029-6e>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_eec029-6e,
+    .kadence-column26_eec029-6e h1,
+    .kadence-column26_eec029-6e h2,
+    .kadence-column26_eec029-6e h3,
+    .kadence-column26_eec029-6e h4,
+    .kadence-column26_eec029-6e h5,
+    .kadence-column26_eec029-6e h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_eec029-6e>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_eec029-6e>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_be39de-da,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_be39de-da[data-kb-block="kb-adv-heading26_be39de-da"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_be39de-da mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_be39de-da[data-kb-block="kb-adv-heading26_be39de-da"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_be39de-da,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_be39de-da[data-kb-block="kb-adv-heading26_be39de-da"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_8c2f81-c1>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_8c2f81-c1>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_8c2f81-c1>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_8c2f81-c1>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_8c2f81-c1>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kadence-column26_15102c-a2>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_15102c-a2>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_15102c-a2>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_15102c-a2>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_15102c-a2>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedgallery.kb-gallery-wrap-id-26_8b85f8-ac {
+      overflow: hidden;
+    }
+
+    .kb-gallery-type-carousel.kb-gallery-id-26_8b85f8-ac .kt-blocks-carousel .kt-blocks-carousel-init:not(.splide-initialized) {
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+
+    .kb-gallery-type-carousel.kb-gallery-id-26_8b85f8-ac .kt-blocks-carousel .kt-blocks-carousel-init:not(.splide-initialized) .kb-slide-item {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .kb-gallery-wrap-id-26_8b85f8-ac.wp-block-kadence-advancedgallery {
+      overflow: visible;
+    }
+
+    .kb-gallery-wrap-id-26_8b85f8-ac.wp-block-kadence-advancedgallery .kt-blocks-carousel {
+      overflow: visible;
+    }
+
+    .kadence-column26_454e12-51>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_454e12-51>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_454e12-51>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_454e12-51>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_454e12-51>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kb-gallery-wrap-id-26_6dab66-a7.wp-block-kadence-advancedgallery {
+      overflow: visible;
+    }
+
+    .kb-gallery-wrap-id-26_6dab66-a7.wp-block-kadence-advancedgallery .kt-blocks-carousel {
+      overflow: visible;
+    }
+
+    .kadence-column26_23c2fd-36>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_23c2fd-36>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_23c2fd-36>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_23c2fd-36>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_23c2fd-36>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedgallery.kb-gallery-wrap-id-26_c66f93-de {
+      overflow: hidden;
+    }
+
+    .kb-gallery-type-carousel.kb-gallery-id-26_c66f93-de .kt-blocks-carousel .kt-blocks-carousel-init:not(.splide-initialized) {
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+
+    .kb-gallery-type-carousel.kb-gallery-id-26_c66f93-de .kt-blocks-carousel .kt-blocks-carousel-init:not(.splide-initialized) .kb-slide-item {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .kb-gallery-wrap-id-26_c66f93-de.wp-block-kadence-advancedgallery {
+      overflow: visible;
+    }
+
+    .kb-gallery-wrap-id-26_c66f93-de.wp-block-kadence-advancedgallery .kt-blocks-carousel {
+      overflow: visible;
+    }
+
+    .kadence-column26_7196a5-47>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_7196a5-47>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_7196a5-47>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_7196a5-47>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_7196a5-47>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kadence-column26_c5248e-e5>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_c5248e-e5>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_c5248e-e5>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_c5248e-e5>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_c5248e-e5>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kadence-column26_aab68b-7a>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_aab68b-7a>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_aab68b-7a>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_aab68b-7a>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_aab68b-7a>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kadence-column26_906d00-af>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_906d00-af>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_906d00-af>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_906d00-af>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_906d00-af>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kadence-column26_b316a7-56>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_b316a7-56>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_b316a7-56>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_b316a7-56>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_b316a7-56,
+    .kadence-column26_b316a7-56 h1,
+    .kadence-column26_b316a7-56 h2,
+    .kadence-column26_b316a7-56 h3,
+    .kadence-column26_b316a7-56 h4,
+    .kadence-column26_b316a7-56 h5,
+    .kadence-column26_b316a7-56 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_b316a7-56>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_b316a7-56>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8d64a9-03,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8d64a9-03[data-kb-block="kb-adv-heading26_8d64a9-03"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8d64a9-03 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8d64a9-03[data-kb-block="kb-adv-heading26_8d64a9-03"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_8d64a9-03,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_8d64a9-03[data-kb-block="kb-adv-heading26_8d64a9-03"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_1d455b-8e>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_1d455b-8e>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_1d455b-8e>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_1d455b-8e>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_1d455b-8e,
+    .kadence-column26_1d455b-8e h1,
+    .kadence-column26_1d455b-8e h2,
+    .kadence-column26_1d455b-8e h3,
+    .kadence-column26_1d455b-8e h4,
+    .kadence-column26_1d455b-8e h5,
+    .kadence-column26_1d455b-8e h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_1d455b-8e>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_1d455b-8e>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_c1b665-90,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_c1b665-90[data-kb-block="kb-adv-heading26_c1b665-90"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_c1b665-90 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_c1b665-90[data-kb-block="kb-adv-heading26_c1b665-90"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_c1b665-90,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_c1b665-90[data-kb-block="kb-adv-heading26_c1b665-90"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_ea4296-bc>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_ea4296-bc>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_ea4296-bc>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_ea4296-bc>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_ea4296-bc,
+    .kadence-column26_ea4296-bc h1,
+    .kadence-column26_ea4296-bc h2,
+    .kadence-column26_ea4296-bc h3,
+    .kadence-column26_ea4296-bc h4,
+    .kadence-column26_ea4296-bc h5,
+    .kadence-column26_ea4296-bc h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_ea4296-bc>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_ea4296-bc>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_ce53b3-12,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_ce53b3-12[data-kb-block="kb-adv-heading26_ce53b3-12"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_ce53b3-12 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_ce53b3-12[data-kb-block="kb-adv-heading26_ce53b3-12"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_ce53b3-12,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_ce53b3-12[data-kb-block="kb-adv-heading26_ce53b3-12"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_6a899d-43>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_6a899d-43>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_6a899d-43>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_6a899d-43>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_6a899d-43>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kb-row-layout-id26_76d803-38>.kt-row-column-wrap {
+      padding-top: var(--global-kb-row-default-top, var(--global-kb-spacing-sm, 1.5rem));
+      padding-bottom: var(--global-kb-row-default-bottom, var(--global-kb-spacing-sm, 1.5rem));
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+
+    @media all and (max-width: 767px) {
+      .kb-row-layout-id26_76d803-38>.kt-row-column-wrap {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .kadence-column26_e2d9b3-8c>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_e2d9b3-8c>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_e2d9b3-8c>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_e2d9b3-8c>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_e2d9b3-8c>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kadence-column26_7cf3e1-96>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_7cf3e1-96>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_7cf3e1-96>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_7cf3e1-96>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_7cf3e1-96,
+    .kadence-column26_7cf3e1-96 h1,
+    .kadence-column26_7cf3e1-96 h2,
+    .kadence-column26_7cf3e1-96 h3,
+    .kadence-column26_7cf3e1-96 h4,
+    .kadence-column26_7cf3e1-96 h5,
+    .kadence-column26_7cf3e1-96 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_7cf3e1-96>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_7cf3e1-96>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_b23351-ed,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_b23351-ed[data-kb-block="kb-adv-heading26_b23351-ed"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_b23351-ed mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_b23351-ed[data-kb-block="kb-adv-heading26_b23351-ed"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    .kadence-column26_15d3cf-d9>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_15d3cf-d9>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_15d3cf-d9>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_15d3cf-d9>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_15d3cf-d9>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .kb-image26_58eeb8-a0 .kb-image-has-overlay:after {
+      opacity: 0.3;
+    }
+
+    .kadence-column26_48a23a-a6>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_48a23a-a6>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_48a23a-a6>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_48a23a-a6>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_48a23a-a6,
+    .kadence-column26_48a23a-a6 h1,
+    .kadence-column26_48a23a-a6 h2,
+    .kadence-column26_48a23a-a6 h3,
+    .kadence-column26_48a23a-a6 h4,
+    .kadence-column26_48a23a-a6 h5,
+    .kadence-column26_48a23a-a6 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_48a23a-a6>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_48a23a-a6>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_5fce82-08,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_5fce82-08[data-kb-block="kb-adv-heading26_5fce82-08"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_5fce82-08 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_5fce82-08[data-kb-block="kb-adv-heading26_5fce82-08"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_5fce82-08,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_5fce82-08[data-kb-block="kb-adv-heading26_5fce82-08"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_b2b3d3-42>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_b2b3d3-42>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_b2b3d3-42>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_b2b3d3-42>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_b2b3d3-42,
+    .kadence-column26_b2b3d3-42 h1,
+    .kadence-column26_b2b3d3-42 h2,
+    .kadence-column26_b2b3d3-42 h3,
+    .kadence-column26_b2b3d3-42 h4,
+    .kadence-column26_b2b3d3-42 h5,
+    .kadence-column26_b2b3d3-42 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_b2b3d3-42>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_b2b3d3-42>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_d356a4-4e,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_d356a4-4e[data-kb-block="kb-adv-heading26_d356a4-4e"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_d356a4-4e mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_d356a4-4e[data-kb-block="kb-adv-heading26_d356a4-4e"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_d356a4-4e,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_d356a4-4e[data-kb-block="kb-adv-heading26_d356a4-4e"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_828d28-45>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_828d28-45>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_828d28-45>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_828d28-45>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_828d28-45,
+    .kadence-column26_828d28-45 h1,
+    .kadence-column26_828d28-45 h2,
+    .kadence-column26_828d28-45 h3,
+    .kadence-column26_828d28-45 h4,
+    .kadence-column26_828d28-45 h5,
+    .kadence-column26_828d28-45 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_828d28-45>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_828d28-45>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_80750e-c3,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_80750e-c3[data-kb-block="kb-adv-heading26_80750e-c3"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_80750e-c3 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_80750e-c3[data-kb-block="kb-adv-heading26_80750e-c3"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_80750e-c3,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_80750e-c3[data-kb-block="kb-adv-heading26_80750e-c3"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_3aab08-f9>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_3aab08-f9>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_3aab08-f9>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_3aab08-f9>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_3aab08-f9,
+    .kadence-column26_3aab08-f9 h1,
+    .kadence-column26_3aab08-f9 h2,
+    .kadence-column26_3aab08-f9 h3,
+    .kadence-column26_3aab08-f9 h4,
+    .kadence-column26_3aab08-f9 h5,
+    .kadence-column26_3aab08-f9 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_3aab08-f9>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_3aab08-f9>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_7d11e3-63,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_7d11e3-63[data-kb-block="kb-adv-heading26_7d11e3-63"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_7d11e3-63 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_7d11e3-63[data-kb-block="kb-adv-heading26_7d11e3-63"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_7d11e3-63,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_7d11e3-63[data-kb-block="kb-adv-heading26_7d11e3-63"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_6f287a-37>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_6f287a-37>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_6f287a-37>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_6f287a-37>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_6f287a-37,
+    .kadence-column26_6f287a-37 h1,
+    .kadence-column26_6f287a-37 h2,
+    .kadence-column26_6f287a-37 h3,
+    .kadence-column26_6f287a-37 h4,
+    .kadence-column26_6f287a-37 h5,
+    .kadence-column26_6f287a-37 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_6f287a-37>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_6f287a-37>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8976ce-79,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8976ce-79[data-kb-block="kb-adv-heading26_8976ce-79"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8976ce-79 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8976ce-79[data-kb-block="kb-adv-heading26_8976ce-79"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_8976ce-79,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_8976ce-79[data-kb-block="kb-adv-heading26_8976ce-79"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kt-accordion-id26_c0f861-16 .kt-accordion-inner-wrap {
+      row-gap: 10px;
+    }
+
+    .kt-accordion-id26_c0f861-16 .kt-accordion-panel-inner {
+      border-top: 0px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent;
+      background: #ffffff;
+    }
+
+    .kt-accordion-id26_c0f861-16 .wp-block-kadence-pane .kt-accordion-header-wrap .kt-blocks-accordion-header {
+      border-top: 1px solid #eeeeee;
+      border-right: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+      border-left: 2px solid #eeeeee;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      background: #ffffff;
+      color: #444444;
+      padding-top: 14px;
+      padding-right: 16px;
+      padding-bottom: 14px;
+      padding-left: 16px;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion-icon-trigger:after,
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion-icon-trigger:before {
+      background: #444444;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-icon-trigger {
+      background: #444444;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-icon-trigger:after,
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-icon-trigger:before {
+      background: #ffffff;
+    }
+
+    .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:hover,
+    body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:focus-visible {
+      color: #444444;
+      background: #ffffff;
+      border-top-color: #d4d4d4;
+      border-top-style: solid;
+      border-right-color: #d4d4d4;
+      border-right-style: solid;
+      border-bottom-color: #d4d4d4;
+      border-bottom-style: solid;
+      border-left-color: #d4d4d4;
+      border-left-style: solid;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion-header:hover .kt-blocks-accordion-icon-trigger:after,
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion-header:hover .kt-blocks-accordion-icon-trigger:before,
+    body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion--visible .kt-blocks-accordion-icon-trigger:after,
+    body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion-header:focus-visible .kt-blocks-accordion-icon-trigger:before {
+      background: #444444;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header:hover .kt-blocks-accordion-icon-trigger,
+    body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header:focus-visible .kt-blocks-accordion-icon-trigger {
+      background: #444444;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header:hover .kt-blocks-accordion-icon-trigger:after,
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header:hover .kt-blocks-accordion-icon-trigger:before,
+    body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header:focus-visible .kt-blocks-accordion-icon-trigger:after,
+    body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header:focus-visible .kt-blocks-accordion-icon-trigger:before {
+      background: #ffffff;
+    }
+
+    .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:focus-visible,
+    .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header.kt-accordion-panel-active {
+      color: #444444;
+      background: #ffffff;
+      border-top-color: #eeeeee;
+      border-top-style: solid;
+      border-right-color: #eeeeee;
+      border-right-style: solid;
+      border-bottom-color: #eeeeee;
+      border-bottom-style: solid;
+      border-left-color: #0e9cd1;
+      border-left-style: solid;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion-header.kt-accordion-panel-active .kt-blocks-accordion-icon-trigger:after,
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basiccircle):not(.kt-accodion-icon-style-xclosecircle):not(.kt-accodion-icon-style-arrowcircle) .kt-blocks-accordion-header.kt-accordion-panel-active .kt-blocks-accordion-icon-trigger:before {
+      background: #444444;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header.kt-accordion-panel-active .kt-blocks-accordion-icon-trigger {
+      background: #444444;
+    }
+
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header.kt-accordion-panel-active .kt-blocks-accordion-icon-trigger:after,
+    .kt-accordion-id26_c0f861-16:not(.kt-accodion-icon-style-basic):not(.kt-accodion-icon-style-xclose):not(.kt-accodion-icon-style-arrow) .kt-blocks-accordion-header.kt-accordion-panel-active .kt-blocks-accordion-icon-trigger:before {
+      background: #ffffff;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kt-accordion-id26_c0f861-16 .kt-accordion-panel-inner {
+        border-top: 0px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        border-left: 1px solid transparent;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+      .kt-accordion-id26_c0f861-16 .wp-block-kadence-pane .kt-accordion-header-wrap .kt-blocks-accordion-header {
+        border-top: 1px solid #eeeeee;
+        border-right: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
+        border-left: 2px solid #eeeeee;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+
+      .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:hover,
+      body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:focus-visible {
+        border-top-color: #d4d4d4;
+        border-top-style: solid;
+        border-right-color: #d4d4d4;
+        border-right-style: solid;
+        border-bottom-color: #d4d4d4;
+        border-bottom-style: solid;
+        border-left-color: #d4d4d4;
+        border-left-style: solid;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+
+      .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:focus-visible,
+      .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header.kt-accordion-panel-active {
+        border-top-color: #eeeeee;
+        border-top-style: solid;
+        border-right-color: #eeeeee;
+        border-right-style: solid;
+        border-bottom-color: #eeeeee;
+        border-bottom-style: solid;
+        border-left-color: #0e9cd1;
+        border-left-style: solid;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kt-accordion-id26_c0f861-16 .kt-accordion-panel-inner {
+        border-top: 0px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        border-left: 1px solid transparent;
+      }
+
+      .kt-accordion-id26_c0f861-16 .wp-block-kadence-pane .kt-accordion-header-wrap .kt-blocks-accordion-header {
+        border-top: 1px solid #eeeeee;
+        border-right: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
+        border-left: 2px solid #eeeeee;
+      }
+
+      .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:hover,
+      body:not(.hide-focus-outline) .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:focus-visible {
+        border-top-color: #d4d4d4;
+        border-top-style: solid;
+        border-right-color: #d4d4d4;
+        border-right-style: solid;
+        border-bottom-color: #d4d4d4;
+        border-bottom-style: solid;
+        border-left-color: #d4d4d4;
+        border-left-style: solid;
+      }
+
+      .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header:focus-visible,
+      .kt-accordion-id26_c0f861-16 .kt-accordion-header-wrap .kt-blocks-accordion-header.kt-accordion-panel-active {
+        border-top-color: #eeeeee;
+        border-top-style: solid;
+        border-right-color: #eeeeee;
+        border-right-style: solid;
+        border-bottom-color: #eeeeee;
+        border-bottom-style: solid;
+        border-left-color: #0e9cd1;
+        border-left-style: solid;
+      }
+    }
+
+    .kadence-column26_ab5898-14>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_ab5898-14>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_ab5898-14>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_ab5898-14>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_ab5898-14,
+    .kadence-column26_ab5898-14 h1,
+    .kadence-column26_ab5898-14 h2,
+    .kadence-column26_ab5898-14 h3,
+    .kadence-column26_ab5898-14 h4,
+    .kadence-column26_ab5898-14 h5,
+    .kadence-column26_ab5898-14 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_ab5898-14>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_ab5898-14>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_88a462-3c,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_88a462-3c[data-kb-block="kb-adv-heading26_88a462-3c"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_88a462-3c mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_88a462-3c[data-kb-block="kb-adv-heading26_88a462-3c"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_88a462-3c,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_88a462-3c[data-kb-block="kb-adv-heading26_88a462-3c"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_f77679-69>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_f77679-69>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_f77679-69>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_f77679-69>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_f77679-69,
+    .kadence-column26_f77679-69 h1,
+    .kadence-column26_f77679-69 h2,
+    .kadence-column26_f77679-69 h3,
+    .kadence-column26_f77679-69 h4,
+    .kadence-column26_f77679-69 h5,
+    .kadence-column26_f77679-69 h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_f77679-69>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_f77679-69>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_a743e3-9c,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_a743e3-9c[data-kb-block="kb-adv-heading26_a743e3-9c"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_a743e3-9c mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_a743e3-9c[data-kb-block="kb-adv-heading26_a743e3-9c"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_a743e3-9c,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_a743e3-9c[data-kb-block="kb-adv-heading26_a743e3-9c"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    .kadence-column26_d7df82-ee>.kt-inside-inner-col {
+      column-gap: var(--global-kb-gap-sm, 1rem);
+    }
+
+    .kadence-column26_d7df82-ee>.kt-inside-inner-col {
+      flex-direction: column;
+    }
+
+    .kadence-column26_d7df82-ee>.kt-inside-inner-col>.aligncenter {
+      width: 100%;
+    }
+
+    .kadence-column26_d7df82-ee>.kt-inside-inner-col {
+      background-color: var(--global-palette9, #ffffff);
+    }
+
+    .kadence-column26_d7df82-ee,
+    .kadence-column26_d7df82-ee h1,
+    .kadence-column26_d7df82-ee h2,
+    .kadence-column26_d7df82-ee h3,
+    .kadence-column26_d7df82-ee h4,
+    .kadence-column26_d7df82-ee h5,
+    .kadence-column26_d7df82-ee h6 {
+      color: #009b9b;
+    }
+
+    @media all and (max-width: 1024px) {
+      .kadence-column26_d7df82-ee>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      .kadence-column26_d7df82-ee>.kt-inside-inner-col {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8bd38a-f4,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8bd38a-f4[data-kb-block="kb-adv-heading26_8bd38a-f4"] {
+      text-align: center;
+      font-size: var(--global-kb-font-size-lg, 2rem);
+    }
+
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8bd38a-f4 mark.kt-highlight,
+    .wp-block-kadence-advancedheading.kt-adv-heading26_8bd38a-f4[data-kb-block="kb-adv-heading26_8bd38a-f4"] mark.kt-highlight {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    @media all and (max-width: 767px) {
+
+      .wp-block-kadence-advancedheading.kt-adv-heading26_8bd38a-f4,
+      .wp-block-kadence-advancedheading.kt-adv-heading26_8bd38a-f4[data-kb-block="kb-adv-heading26_8bd38a-f4"] {
+        font-size: var(--global-kb-font-size-lg, 2rem);
+      }
+    }
+
+    ul.menu .wp-block-kadence-advancedbtn .kb-btn26_fc2833-19.kb-button {
+      width: initial;
+    }
+
+    .wp-block-kadence-advancedbtn .kb-btn26_fc2833-19.kb-button {
+      color: var(--global-palette3, #1A202C);
+      background: var(--global-palette8, #F7FAFC);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      box-shadow: 0px 0px 60px 5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  
+  <meta name="geo.region" content="US">
+  <meta name="geo.country" content="US">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "orca slicer",
+  "url": "https://orcaslicer3d.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://orcaslicer3d.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://orcaslicer3d.com/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {
+        "@id": "https://orcaslicer3d.com/",
+        "name": "Home"
+      }
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://www.wikidata.org/wiki/Q56660744",
+  "name": "Orca Slicer",
+  "alternateName": [
+    "OrcaSlicer",
+    "Orca",
+    "3D Printing Slicer"
+  ],
+  "url": "https://orcaslicer3d.com/",
+  "description": "Orca Slicer is free, open-source 3D printing software with auto-calibration and multi-printer support. Download for Windows, macOS, and Linux (Flatpak, AppImage).",
+  "image": "https://orcaslicer3d.com/wp-content/uploads/2025/07/cropped-orca-slicer-logo-768x694.webp",
+  "screenshot": "https://orcaslicer3d.com/wp-content/uploads/2025/07/orcaslicer3d-768x432.png",
+  "applicationCategory": "3DPrintingSoftware",
+  "applicationSubCategory": "Slicer",
+  "softwareVersion": "V2.3.1 Beta Release",
+  
+  "operatingSystem": [
+    "Windows 10 or later (64-bit)",
+    "macOS 10.13 or newer (Intel & Apple Silicon)",
+    "Linux Ubuntu 22.04+, Fedora 39+, Debian 11+ (Flatpak & AppImage)"
+  ],
+  
+  "inLanguage": [
+    "en",
+    "de",
+    "fr",
+    "es",
+    "pt-BR",
+    "zh-Hant"
+  ],
+
+  "fileSize": "93-195 MB",
+  "downloadUrl": "https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.3.1-beta",
+  
+  "requirements": [
+    "Windows: Windows 10 or later (64-bit), Intel Core i3 or equivalent, 4 GB RAM minimum (8 GB recommended), DirectX 11 compatible GPU, 500 MB free storage",
+    "macOS: macOS 10.13 or newer, Intel 64-bit or Apple Silicon CPU, Metal-compatible GPU, 4 GB RAM minimum, 500 MB storage",
+    "Linux: Ubuntu 22.04+, Fedora 39+, Debian 11+, OpenGL 3.2 compatible GPU, 4 GB RAM minimum, 500 MB storage"
+  ],
+
+  "license": {
+    "@type": "CreativeWork",
+    "name": "GNU AFFERO GENERAL PUBLIC LICENSE v3.0",
+    "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+  },
+
+  "featureList": [
+    "Calibration Tools",
+    "Printer Compatibility",
+    "Remote Printing",
+    "Seam Painting",
+    "Polyhole Fix",
+    "Smart Slicing Modes",
+    "Profile Repository"
+  ],
+
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD",
+    "category": "Open Source",
+    "availability": "https://schema.org/InStock",
+    "url": "https://orcaslicer3d.com/"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Orca Slicer",
+    "url": "https://orcaslicer3d.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://orcaslicer3d.com/wp-content/uploads/2025/07/cropped-orca-slicer-logo-768x694.webp"
+    },
+    "sameAs": [
+      "https://github.com/SoftFever/OrcaSlicer/",
+      "https://www.facebook.com/orcaslicer3d/",
+      "https://www.instagram.com/orcaslicer3d/",
+      "https://x.com/orcaslicer_3d/",
+      "https://www.youtube.com/@orcaslicer3d/",
+      "https://www.pinterest.com/orcaslicer3d/",
+      "https://www.behance.net/orcaslicer3d/",
+      "https://medium.com/@orcaslicer3d/",
+      "https://archive.org/details/@orcaslicer3d/",
+      "https://www.twitch.tv/orcaslicer3d/",
+      "https://vimeo.com/orcaslicer3d/",
+      "https://www.tumblr.com/orcaslicer3d/",
+      "https://www.deviantart.com/orcaslicer3d/",
+      "https://linktr.ee/orcaslicer3d/"
+    ]
+  },
+
+  "creator": {
+    "@type": "Person",
+    "name": "SoftFever",
+    "sameAs": "https://github.com/SoftFever"
+  },
+
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "10900",
+    "bestRating": "5",
+    "worstRating": "1",
+    "description": "Popularity is estimated from GitHub engagement, including 10,900 stars and 1,400 forks. The 'ratingCount' corresponds to total stars, while 'ratingValue' provides an approximate score on a 1–5 scale. This rating is based on community trends, not on official app store submissions."
+  },
+
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "3D printing enthusiasts"
+  }
+}</script>
+  <script type="application/ld+json"
+    class="kadence-faq-schema-graph kadence-faq-schema-graph--kb-faq26_c0f861-16">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name": "<strong>How do I import Cura/Prusa profiles into Orca Slicer?</strong>","acceptedAnswer":{"@type": "Answer","text": "<p>Go to File > Import and select .ini or .3mf profiles.</p>"}},{"@type":"Question","name": "<strong>Does Orca Slicer support multi-material printing?</strong>","acceptedAnswer":{"@type": "Answer","text": "<p>Yes, with printers like Prusa MMU & Bambu AMS.</p>"}},{"@type":"Question","name": "<strong>Can I use Orca Slicer offline?</strong>","acceptedAnswer":{"@type": "Answer","text": "<p>Yes, it works fully offline; online is only needed for updates.</p>"}},{"@type":"Question","name": "<strong>How to fix stringing/oozing?</strong>","acceptedAnswer":{"@type": "Answer","text": "<p>Adjust retraction settings (0.8–1 mm @ 35 mm/s for PLA).</p>"}},{"@type":"Question","name": "<strong>Is Orca Slicer beginner-friendly?</strong>","acceptedAnswer":{"@type": "Answer","text": "<p>Yes, thanks to presets & auto-calibration tools.</p>"}},{"@type":"Question","name": "<strong>Does it work with Klipper/Marlin?</strong>","acceptedAnswer":{"@type": "Answer","text": "<p>Yes, widely compatible with both.</p>"}},{"@type":"Question","name": "<strong>How to enable Wi-Fi/Remote Printing?</strong>","acceptedAnswer":{"@type": "Answer","text": "<p>Connect via Obico, OctoPrint, or Bambu Studio integration.</p>"}}]}</script>
+  <link rel="icon" href="images/3ia21RAwV0P1.webp" sizes="32x32">
+  <link rel="icon" href="images/88E4Qo0AdSHE.webp" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/N86YiyDyx0Wz.webp">
+  <meta name="msapplication-TileImage"
+    content="https://orcaslicer3d.com/wp-content/uploads/2025/07/cropped-cropped-orca-slicer-logo-270x270.webp">
+</head>
+
+<body
+  class="home wp-singular page-template-default page page-id-26 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-standard content-title-style-hide content-width-normal content-style-boxed content-vertical-padding-hide non-transparent-header mobile-non-transparent-header">
+  <div id="wrapper" class="site wp-site-blocks">
+    <a class="skip-link screen-reader-text scroll-ignore" href="#main">Skip to content</a>
+    <header id="masthead" class="site-header" role="banner" itemtype="https://schema.org/WPHeader" itemscope="">
+      <div id="main-header" class="site-header-wrap">
+        <div class="site-header-inner-wrap">
+          <div class="site-header-upper-wrap">
+            <div class="site-header-upper-inner-wrap">
+              <div
+                class="site-main-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-standard"
+                data-section="kadence_customizer_header_main">
+                <div class="site-header-row-container-inner">
+                  <div class="site-container">
+                    <div
+                      class="site-main-header-inner-wrap site-header-row site-header-row-has-sides site-header-row-no-center">
+                      <div class="site-header-main-section-left site-header-section site-header-section-left">
+                        <div class="site-header-item site-header-focus-item" data-section="title_tagline">
+                          <div class="site-branding branding-layout-standard"><a class="brand has-logo-image"
+                              href="https://orcaslicer3d.com/" rel="home"><img width="1023" height="925"
+                                src="images/ZMZyLipCdogu.webp" class="custom-logo" alt="orca-slicer-logo"
+                                decoding="async" fetchpriority="high"
+                                srcset="images/ZMZyLipCdogu.webp 1023w, images/u0opPB8t6MEn.webp 300w, images/bhv8SDqRb07z.webp 768w"
+                                sizes="(max-width: 1023px) 100vw, 1023px">
+                              <div class="site-title-wrap">
+                                <p class="site-title">Orca Slicer</p>
+                              </div>
+                            </a></div>
+                        </div>
+                      </div>
+                      <div class="site-header-main-section-right site-header-section site-header-section-right">
+                        <div
+                          class="site-header-item site-header-focus-item site-header-item-main-navigation header-navigation-layout-stretch-false header-navigation-layout-fill-stretch-false"
+                          data-section="kadence_customizer_primary_navigation">
+                          <nav id="site-navigation"
+                            class="main-navigation header-navigation hover-to-open nav--toggle-sub header-navigation-style-standard header-navigation-dropdown-animation-none"
+                            role="navigation" aria-label="Primary">
+                            <div class="primary-menu-container header-menu-container">
+                              <ul id="primary-menu" class="menu">
+                                <li id="menu-item-34"
+                                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-26 current_page_item menu-item-34">
+                                  <a href="https://orcaslicer3d.com/" aria-current="page">Home</a></li>
+                                <li id="menu-item-50"
+                                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a
+                                    href="https://orcaslicer3d.com/about-us/">About Us</a></li>
+                                <li id="menu-item-48"
+                                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48"><a
+                                    href="https://orcaslicer3d.com/download-orca-slicer/">Download Now</a></li>
+                                <li id="menu-item-49"
+                                  class="menu-item menu-item-type-post_type menu-item-object-post menu-item-49"><a
+                                    href="https://orcaslicer3d.com/orca-slicer-not-working/">Troubleshoot</a></li>
+                                <li id="menu-item-557"
+                                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-557"><a
+                                    href="https://orcaslicer3d.com/blog/">Blog</a></li>
+                              </ul>
+                            </div>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-header" class="site-mobile-header-wrap">
+        <div class="site-header-inner-wrap">
+          <div class="site-header-upper-wrap">
+            <div class="site-header-upper-inner-wrap">
+              <div
+                class="site-main-header-wrap site-header-focus-item site-header-row-layout-standard site-header-row-tablet-layout-default site-header-row-mobile-layout-default ">
+                <div class="site-header-row-container-inner">
+                  <div class="site-container">
+                    <div
+                      class="site-main-header-inner-wrap site-header-row site-header-row-has-sides site-header-row-no-center">
+                      <div class="site-header-main-section-left site-header-section site-header-section-left">
+                        <div class="site-header-item site-header-focus-item" data-section="title_tagline">
+                          <div
+                            class="site-branding mobile-site-branding branding-layout-standard branding-tablet-layout-inherit branding-mobile-layout-inherit">
+                            <a class="brand has-logo-image" href="https://orcaslicer3d.com/" rel="home"><img
+                                width="1023" height="925" src="images/ZMZyLipCdogu.webp" class="custom-logo"
+                                alt="orca-slicer-logo" decoding="async"
+                                srcset="images/ZMZyLipCdogu.webp 1023w, images/u0opPB8t6MEn.webp 300w, images/bhv8SDqRb07z.webp 768w"
+                                sizes="(max-width: 1023px) 100vw, 1023px">
+                              <div class="site-title-wrap">
+                                <div class="site-title vs-md-false">Orca Slicer</div>
+                              </div>
+                            </a></div>
+                        </div>
+                      </div>
+                      <div class="site-header-main-section-right site-header-section site-header-section-right">
+                        <div class="site-header-item site-header-focus-item site-header-item-navgation-popup-toggle"
+                          data-section="kadence_customizer_mobile_trigger">
+                          <div class="mobile-toggle-open-container">
+                            <button id="mobile-toggle" class="menu-toggle-open drawer-toggle menu-toggle-style-default"
+                              aria-label="Open menu" data-toggle-target="#mobile-drawer"
+                              data-toggle-body-class="showing-popup-drawer-from-right" aria-expanded="false"
+                              data-set-focus=".menu-toggle-close">
+                              <span class="menu-toggle-icon"><span class="kadence-svg-iconset"><svg aria-hidden="true"
+                                    class="kadence-svg-icon kadence-menu-svg" fill="currentColor" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <title>Toggle Menu</title>
+                                    <path
+                                      d="M3 13h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 7h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 19h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1z">
+                                    </path>
+                                  </svg></span></span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="inner-wrap" class="wrap kt-clear" role="main">
+      <div id="primary" class="content-area">
+        <div class="content-container site-container">
+          <div id="main" class="site-main">
+            <div class="content-wrap">
+              <article id="post-26" class="entry content-bg single-entry post-26 page type-page status-publish hentry">
+                <div class="entry-content-wrap">
+                 <div class="entry-content single-content">
+
+<h1 class="kt-adv-heading26_58da81-55 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading26_58da81-55">Orca Slicer: The Ultimate 3D Printing Slicer for Beginners and Experts</h1>
+<p style="text-align: center;">A community-driven, feature-rich slicer that makes your 3D printing experience smarter and smoother.</p>
+
+<div class="wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns26_2a480d-3d"><a class="kb-button kt-button button kb-btn26_447e82-f5 kt-btn-size-small kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-true  wp-block-kadence-singlebtn" href="https://github.com/SoftFever/OrcaSlicer/releases/latest"><span class="kb-svg-icon-wrap kb-svg-icon-fas_download kt-btn-icon-side-left"><svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path></svg></span><span class="kt-btn-inner-text"><strong>Orca Slicer v2.3.1 beta Release</strong></span></a></div>
+
+
+<div class="wp-block-kadence-image kb-image448_9447e2-70"><figure class="aligncenter size-full"><img src="https://orcaslicer.vip/wp-content/uploads/2025/09/image.png" alt="" class="kb-img wp-image-452"/></figure></div>
+
+
+<h2>A Brief Overview of Orca Slicer</h2>
+
+<p> <a href="https://orcaslicer.vip/">Orca Slicer</a> is not an official product of a large corporation; rather, it is an open-source, community-driven 3D printing slicer created by fans and contributors. With regular updates from its user base, it is built for speed, accuracy, and adaptability. It is compatible with all of the main desktop operating systems, including Windows, macOS, and Linux.</p>
+
+<h2>Why Choose Orca Slicer?</h2>
+<h3>Advanced Instruments for Calibration</h3>
+
+<p>With the help of Orca's built-in flow, extrusion, temperature, retraction, and other wizards, you can achieve "print-ready" accuracy more quickly.</p>
+
+<h3>An interface rich in features</h3>
+
+<p>For precise control, every element of your print is visible, including wall settings, seam placement, and infill.</p>
+
+
+<h3>Cross-Platform Assistance</h3>
+<p>Orca Slicer functions flawlessly and is updated for Windows, macOS, and Linux.</p>
+
+<h3>Community-Based</h3>
+<p>Features, bug fixes, and enhancements are the result of active community participation rather than corporate roadmaps. This slicer is shaped by hands-on 3D printing enthusiasts.</p>
+<h3>Open Source & Free</h3>
+<p>Orca Slicer has no hidden fees and is completely free. Transparency, adaptability, and community accountability are guaranteed by its open-source nature.</p>
+<h2>Getting Started with Orca Slicer</h2>
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Download &amp; Install</strong><br>Head to the official GitHub releases page and grab the installer for your system (Windows / macOS / Linux).</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>First Launch Setup</strong><br>On opening Orca, you’ll be prompted to pick or create a printer profile — choose your printer (or its close match) and set up filament / bed dimensions.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Loading Models</strong><br>Use <strong>File → Import</strong> (or drag‑and‑drop) to bring in <code>.stl</code>, <code>.3mf</code>, or other supported 3D model files into the workspace.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Basic Settings</strong><br>Adjust key parameters like layer height, print speed, infill percentage, and support structures. These settings live in panels like “Quality,” “Support,” and “Infill.”</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>First Print Export</strong><br>When satisfied, click <strong>Slice / Export G-code</strong>. You can either save the G-code file (for use via SD card) or send it directly to your printer if it’s network‑connected.</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+
+<h2>Deep Dive into Features</h2>
+
+<h3>Intelligent Calibration</h3>
+
+<p>Orca comes with built-in calibration wizards for temperature tower tests, pressure advance/PA tuning, and flow rate tuning. These eliminate the need for guesswork by assisting you in adjusting the ideal extrusion and temperature settings for various materials.</p>
+
+<h3>Performance Slicing</h3>
+
+<p>Because the engine is tuned for speed and accuracy, it can produce clear, effective G-code rapidly while minimizing travel movements and print artifacts.</p>
+<h3>Modes of Stealth and Smoothness</h3>
+
+<p>Do you want ultra-smooth surfaces or whisper-quiet printing? To lessen noise and enhance the appearance of outer walls, Orca provides modes that slow movement or smooth pathing.</p>
+
+<h3>Compatibility of Multiple Brands</h3>
+
+<p>You are not restricted to a single printer ecosystem by Orca. With the help of community-provided profiles and machine settings that can be customized, it supports a large range of brands and models.</p>
+
+<h3>Custom Supports & Modifiers</h3>
+<p>You are not relegated to using stock supports, you can add custom supports (or "exclusion zones") or modifiers for each region in your model. This gives you complete control of strength, overhangs, and print time.</p>
+
+<h2>Comparisons with Other Slicers</h2>
+
+<p>Curious how Orca Slicer stacks up against other popular options? Check out these detailed comparisons to help you choose the right slicer for your setup:</p>
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>🔄 <strong><a href="https://orcaslicer.vip/orca-slicer-vs-bambu-studio/">Orca Slicer vs Bambu Studio</a></strong> – Understand the key differences in performance, UI, and ecosystem support.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>🆚 <strong><a href="https://orcaslicer.vip/orca-slicer-vs-cura/">Orca Slicer vs Cura</a></strong> – See how Orca compares to this long-standing open-source slicer.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>⚖️ <strong><a href="https://orcaslicer.vip/orca-slicer-vs-creality-print/">Orca Slicer vs Creality Print</a></strong> – Find out which is better suited for Creality machines and broader use.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>🧭 <em>These guides not only boost SEO but also help new users explore alternatives and make informed decisions.</em></p>
+<!-- /wp:paragraph -->
+
+<h2 class="kt-adv-heading448_afd9f0-1c wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading448_afd9f0-1c">Frequently Asked Questions</h2>
+
+<!-- wp:paragraph -->
+<p><strong>Is Orca Slicer completely free?</strong></p>
+<!-- /wp:paragraph -->
+
+<p>Yes — Orca Slicer is entirely free and open source. There are no hidden fees, licenses, or premium features to unlock.</p>
+
+<!-- wp:paragraph -->
+<p><strong>Can I use it on non-Bambu printers?</strong></p>
+<!-- /wp:paragraph -->
+<p>Yes, absolutely. While it works well with Bambu printers, Orca Slicer supports all kinds of brands, including Creality, Prusa, Anycubic, and others with customizable profiles.</p>
+
+
+<!-- wp:paragraph -->
+<p><strong>Does Orca Slicer work on Ubuntu?</strong><br>Yes! Orca Slicer works on both Ubuntu and other Linux distributions. You can download the Linux build directly from the official GitHub releases page.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>How is it different from Cura?</strong><br>While both are great slicers to use, Orca Slicer has built-in calibration tools, a more modern UI, and more refined integration with more recent printers. A lot of users claim it is faster and more beginner-friendly out of the box.</p>
+<!-- /wp:paragraph -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="site-footer-wrap">
+        <div
+          class="site-top-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-standard site-footer-row-tablet-layout-default site-footer-row-mobile-layout-default"
+          data-section="kadence_customizer_footer_top">
+          <div class="site-footer-row-container-inner">
+            <div class="site-container">
+              <div
+                class="site-top-footer-inner-wrap site-footer-row site-footer-row-columns-2 site-footer-row-column-layout-equal site-footer-row-tablet-column-layout-default site-footer-row-mobile-column-layout-row ft-ro-dir-row ft-ro-collapse-normal ft-ro-t-dir-default ft-ro-m-dir-default ft-ro-lstyle-plain">
+                <div class="site-footer-top-section-1 site-footer-section footer-section-inner-items-1">
+                  <div
+                    class="footer-widget-area widget-area site-footer-focus-item footer-widget1 content-align-default content-tablet-align-default content-mobile-align-default content-valign-default content-tablet-valign-default content-mobile-valign-default"
+                    data-section="sidebar-widgets-footer1">
+                    <div class="footer-widget-area-inner site-info-inner">
+                      <section id="block-8" class="widget widget_block widget_media_image">
+                        <figure class="wp-block-image size-full is-resized"><img decoding="async" width="1023"
+                            height="925" src="images/ZMZyLipCdogu.webp" alt="orca-slicer-logo" class="wp-image-29"
+                            style="width:69px;height:auto"
+                            srcset="images/ZMZyLipCdogu.webp 1023w, images/u0opPB8t6MEn.webp 300w, images/bhv8SDqRb07z.webp 768w"
+                            sizes="(max-width: 1023px) 100vw, 1023px">
+                          <figcaption class="wp-element-caption">Orca Slicer is a free and open-source tool made by
+                            SoftFever, built on top of Bambu Studio. It helps turn 3D models into something called
+                            G-code, which gives step-by-step instructions for a 3D printer to follow. Thanks to smart
+                            programming and advanced technology, Orca Slicer helps create prints that are both accurate
+                            and high-quality.</figcaption>
+                        </figure>
+                      </section>
+                      <section id="block-9" class="widget widget_block widget_text">
+                        <p></p>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+                <div class="site-footer-top-section-2 site-footer-section footer-section-inner-items-1">
+                  <div
+                    class="footer-widget-area widget-area site-footer-focus-item footer-widget2 content-align-default content-tablet-align-default content-mobile-align-default content-valign-default content-tablet-valign-default content-mobile-valign-default"
+                    data-section="sidebar-widgets-footer2">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="site-middle-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-standard site-footer-row-tablet-layout-default site-footer-row-mobile-layout-default"
+          data-section="kadence_customizer_footer_middle">
+          <div class="site-footer-row-container-inner">
+            <div class="site-container">
+              <div
+                class="site-middle-footer-inner-wrap site-footer-row site-footer-row-columns-2 site-footer-row-column-layout-equal site-footer-row-tablet-column-layout-default site-footer-row-mobile-column-layout-row ft-ro-dir-row ft-ro-collapse-normal ft-ro-t-dir-default ft-ro-m-dir-default ft-ro-lstyle-plain">
+                <div class="site-footer-middle-section-1 site-footer-section footer-section-inner-items-1">
+                  <div
+                    class="footer-widget-area site-info site-footer-focus-item content-align-center content-tablet-align-default content-mobile-align-default content-valign-middle content-tablet-valign-default content-mobile-valign-default"
+                    data-section="kadence_customizer_footer_html">
+                    <div class="footer-widget-area-inner site-info-inner">
+                      <div class="footer-html inner-link-style-normal">
+                        <div class="footer-html-inner">
+                          <p>� 2025 Orca Slicer | Orca Slicer - All Right Reserved</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="site-footer-middle-section-2 site-footer-section footer-section-inner-items-1">
+                  <div
+                    class="footer-widget-area widget-area site-footer-focus-item footer-navigation-wrap content-align-center content-tablet-align-default content-mobile-align-default content-valign-middle content-tablet-valign-default content-mobile-valign-default footer-navigation-layout-stretch-false"
+                    data-section="kadence_customizer_footer_navigation">
+                    <div class="footer-widget-area-inner footer-navigation-inner">
+                      <nav id="footer-navigation" class="footer-navigation" role="navigation" aria-label="Footer">
+                        <div class="footer-menu-container">
+                          <ul id="footer-menu" class="menu">
+                            <li id="menu-item-714"
+                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-714"><a
+                                href="https://orcaslicer3d.com/contact-us/">Contact Us</a></li>
+                            <li id="menu-item-106"
+                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106"><a
+                                href="https://orcaslicer3d.com/terms-and-conditions/">Terms and Conditions</a></li>
+                            <li id="menu-item-107"
+                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107"><a
+                                href="https://orcaslicer3d.com/privacy-policy/">Privacy Policy</a></li>
+                          </ul>
+                        </div>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+ 
+  <div id="mobile-drawer"
+    class="popup-drawer popup-drawer-layout-sidepanel popup-drawer-animation-fade popup-drawer-side-right"
+    data-drawer-target-string="#mobile-drawer">
+    <div class="drawer-overlay" data-drawer-target-string="#mobile-drawer"></div>
+    <div class="drawer-inner">
+      <div class="drawer-header">
+        <button class="menu-toggle-close drawer-toggle" aria-label="Close menu" data-toggle-target="#mobile-drawer"
+          data-toggle-body-class="showing-popup-drawer-from-right" aria-expanded="false"
+          data-set-focus=".menu-toggle-open">
+          <span class="toggle-close-bar"></span>
+          <span class="toggle-close-bar"></span>
+        </button>
+      </div>
+      <div class="drawer-content mobile-drawer-content content-align-left content-valign-top">
+        <div
+          class="site-header-item site-header-focus-item site-header-item-mobile-navigation mobile-navigation-layout-stretch-false"
+          data-section="kadence_customizer_mobile_navigation">
+          <nav id="mobile-site-navigation"
+            class="mobile-navigation drawer-navigation drawer-navigation-parent-toggle-false" role="navigation"
+            aria-label="Primary Mobile">
+            <div class="mobile-menu-container drawer-menu-container">
+              <ul id="mobile-menu" class="menu has-collapse-sub-nav">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-714"><a
+                    href="https://orcaslicer3d.com/contact-us/">Contact Us</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106"><a
+                    href="https://orcaslicer3d.com/terms-and-conditions/">Terms and Conditions</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107"><a
+                    href="https://orcaslicer3d.com/privacy-policy/">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style id="core-block-supports-inline-css">
+    .wp-container-core-columns-is-layout-9d6595d7 {
+      flex-wrap: nowrap;
+    }
+  </style>
+ 
+
+
+
+
+
+</body>
+
+</html>
+<!-- Page optimized by LiteSpeed Cache @2025-09-27 11:55:17 --><!-- Page cached by LiteSpeed Cache 7.5.0.1 on 2025-09-27 11:55:17 --><!-- Guest Mode --><!-- QUIC.cloud UCSS in queue -->
